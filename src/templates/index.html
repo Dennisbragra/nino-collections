@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="heading">
+	<span id="heading-first">Nino</span> <span id="heading-last">Collection</span>
+</div>
+
+<div>
+	<div>
+		<div>
+			<h4>Shirts</h4>
+		</div>
+		{% for shirt in shirts %}
+			<a href="{% url 'item' shirt.id %}"> {{ shirt.name }}
+			{{ shirt.product }}<br>
+			<img src="{% static 'images/shirt1.jpeg' %}" height="100" /><br>
+			{{ shirt.description }}<br>
+			{{ shirt.price }}<br><br></a>
+
+		{% endfor %}
+	</div>
+	<hr>
+	<div>
+		<div>
+			<a href=""><h4>Shorts</h4>
+		</div>
+		{% for short in shorts %}
+			<a href="{% url 'item' short.id %}"> {{ short.name }}
+			{{ short.product }}<br>
+			<img src="{% static 'images/short1.jpeg'%}" height="100" alt="shorts"><br>
+			{{ short.description }}<br>
+			{{ short.price }}<br><br></a>
+
+		{% endfor %}
+	</div>
+	<hr>
+	<div>
+		<div>
+			<h4>Sweaters</h4>
+		</div>
+		{% for sweater in sweaters %}
+			<a href="{% url 'item' sweater.id %}"> {{ sweater.name }}
+			{{ sweater.product }}<br>
+			<img src="{% static 'images/sweater1.jpeg'%}" height="100"><br>
+			{{ sweater.description }}<br>
+			{{ sweater.price }}<br><br></a>
+
+		{% endfor %}
+	</div>	
+</div>
+
+
+
+
+
+{% endblock %}

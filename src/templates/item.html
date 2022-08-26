@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+	<h1>{{ details.product}} {{ details.name }}</h1>
+</div>
+
+<div>
+	{{ details.description }}<br>
+	{{ details.price }}<br>
+	{% if details.quantity < 1 %}
+		<span>Out of stock</span>
+	{% else %}	
+		<span>Only {{ details.quantity }} left</span><br>
+	{% endif %}
+	<form method="POST">{% csrf_token %}
+		<p>
+			Confirm purchase of this item<br>
+			<input type="submit" name="submit" value="Yes">
+			<a href="{{request.META.HTTP.REFERER}}">No</a>
+		</p>
+	</form>
+	
+</div>
+
+
+{% endblock %}
